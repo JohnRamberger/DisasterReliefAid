@@ -1,3 +1,4 @@
+import 'package:disaster_relief_aid_flutter/Components/MultiSelectDropDown.component.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -75,7 +76,13 @@ class _RegistrationFormState extends State<RegistrationForm> {
                 Container(
                   margin: const EdgeInsets.only(bottom: 32),
                   child: Row(children: const [
-                    Expanded(child: VulnerabilitiesDropdown())
+                    Expanded(
+                        child: CustomMultiselectDropDown(
+                      listOFStrings: ['A', 'B'],
+                      selectedList: vulnerabilitySelected,
+                      labelText: "Vulnerabilities",
+                      hintText: "Select your vulnerabilities",
+                    ))
                   ]),
                 ),
                 Row(
@@ -93,6 +100,10 @@ class _RegistrationFormState extends State<RegistrationForm> {
               ],
             ))));
   }
+}
+
+dynamic vulnerabilitySelected(List<String> selected) {
+  print(selected);
 }
 
 class LanguageDropDown extends StatefulWidget {
@@ -212,3 +223,35 @@ class _VulnerabilitiesDropdownState extends State<VulnerabilitiesDropdown> {
     );
   }
 }
+
+// -------- DropDown (can only select one) --------
+
+// class _VulnerabilitiesDropdownState extends State<VulnerabilitiesDropdown> {
+//   String dropdownValue = Config.vulnerabilities[0];
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return DropdownButtonFormField<String>(
+//       // value: dropdownValue,
+//       items: Config.vulnerabilities.map<DropdownMenuItem<String>>((String e) {
+//         return DropdownMenuItem<String>(value: e, child: Text(e));
+//       }).toList(),
+//       onChanged: (String? value) {
+//         setState(() {
+//           dropdownValue = value!;
+//         });
+//       },
+//       isExpanded: true,
+//       decoration: const InputDecoration(
+//         labelText: "Vulnerabilities",
+//         // hintText: "Select your vulnerabilities"
+//       ),
+//       validator: (value) {
+//         if (value == null || value.isEmpty) {
+//           return "Please enter a vulnerability or select 'None'";
+//         }
+//       },
+//       hint: const Text("Select your vulnerabilities"),
+//     );
+//   }
+// }
