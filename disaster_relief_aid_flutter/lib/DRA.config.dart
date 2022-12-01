@@ -6,5 +6,9 @@ class Config {
   static final languages = ['English', 'Hindi', 'Marathi'];
 
   /// The list of vulnerabilities to choose from when registering
-  static final vulnerabilities = ['None', 'Chronic Back Pain'];
+  static final vulnerabilities = [
+    'Chronic Back Pain',
+    'something',
+    'something else'
+  ];
 }
