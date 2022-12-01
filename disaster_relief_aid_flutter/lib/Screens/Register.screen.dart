@@ -75,10 +75,10 @@ class _RegistrationFormState extends State<RegistrationForm> {
                 ),
                 Container(
                   margin: const EdgeInsets.only(bottom: 32),
-                  child: Row(children: const [
+                  child: Row(children: [
                     Expanded(
                         child: CustomMultiselectDropDown(
-                      listOFStrings: ['A', 'B'],
+                      listOFStrings: Config.vulnerabilities.toList(),
                       selectedList: vulnerabilitySelected,
                       labelText: "Vulnerabilities",
                       hintText: "Select your vulnerabilities",
