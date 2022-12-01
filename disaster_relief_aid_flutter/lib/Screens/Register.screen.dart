@@ -189,7 +189,7 @@ class _VulnerabilitiesDropdownState extends State<VulnerabilitiesDropdown> {
   @override
   Widget build(BuildContext context) {
     return DropdownButtonFormField<String>(
-      value: dropdownValue,
+      // value: dropdownValue,
       items: Config.vulnerabilities.map<DropdownMenuItem<String>>((String e) {
         return DropdownMenuItem<String>(value: e, child: Text(e));
       }).toList(),
@@ -200,8 +200,15 @@ class _VulnerabilitiesDropdownState extends State<VulnerabilitiesDropdown> {
       },
       isExpanded: true,
       decoration: const InputDecoration(
-          labelText: "Vulnerabilities",
-          hintText: "Select your vulnerabilities"),
+        labelText: "Vulnerabilities",
+        // hintText: "Select your vulnerabilities"
+      ),
+      validator: (value) {
+        if (value == null || value.isEmpty) {
+          return "Please enter a vulnerability or select 'None'";
+        }
+      },
+      hint: const Text("Select your vulnerabilities"),
     );
   }
 }
