@@ -82,37 +82,46 @@ class _ViewItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
-    return Padding(
-      padding:
-          EdgeInsets.only(left: size.width * .032, right: size.width * .098),
-      child: Row(
-        children: [
-          SizedBox(
-            height: 24.0,
-            width: 24.0,
-            child: Checkbox(
-              value: itemSelected,
-              onChanged: (val) {
-                selected(item);
-              },
-              // activeColor: PrimeDentalColors.blue,
-            ),
-          ),
-          SizedBox(
-            width: size.width * .025,
-          ),
-          Text(
-            item,
-            // style: GoogleFonts.poppins(
-            //   textStyle: TextStyle(
-            //     color: PrimeDentalColors.grey,
-            //     fontWeight: FontWeight.w400,
-            //     fontSize: 17.0,
-            //   ),
-            // ),
-          ),
-        ],
-      ),
+    // return Padding(
+    //   padding:
+    //       EdgeInsets.only(left: size.width * .032, right: size.width * .098),
+    //   child: Row(
+    //     children: [
+    //       SizedBox(
+    //         height: 24.0,
+    //         width: 24.0,
+    //         child: Checkbox(
+    //           value: itemSelected,
+    //           onChanged: (val) {
+    //             selected(item);
+    //           },
+    //           // activeColor: PrimeDentalColors.blue,
+    //         ),
+    //       ),
+    //       SizedBox(
+    //         width: size.width * .025,
+    //       ),
+    //       Text(
+    //         item,
+    //         // style: GoogleFonts.poppins(
+    //         //   textStyle: TextStyle(
+    //         //     color: PrimeDentalColors.grey,
+    //         //     fontWeight: FontWeight.w400,
+    //         //     fontSize: 17.0,
+    //         //   ),
+    //         // ),
+    //       ),
+    //     ],
+    //   ),
+    // );
+    return ListTile(
+      title: Text(item),
+      onTap: () {
+        selected(item);
+      },
+      leading: itemSelected
+          ? const Icon(Icons.check_box)
+          : const Icon(Icons.check_box_outline_blank),
     );
   }
 }
