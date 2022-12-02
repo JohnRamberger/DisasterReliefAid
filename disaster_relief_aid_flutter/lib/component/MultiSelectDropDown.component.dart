@@ -1,15 +1,17 @@
 import 'package:flutter/material.dart';
 
 class CustomMultiselectDropDown extends StatefulWidget {
-  final Function(List<String>) selectedList;
-  final List<String> listOFStrings;
+  final dynamic Function(List<dynamic> selected) onSelected;
+  final List<dynamic> listOFStrings;
   final String? labelText;
   final String? hintText;
+  // final dynamic Function(List<dynamic> values) onSaved;
 
   const CustomMultiselectDropDown(
       {super.key,
-      required this.selectedList,
+      required this.onSelected,
       required this.listOFStrings,
+      // required this.onSaved,
       this.labelText,
       this.hintText});
 
@@ -20,8 +22,8 @@ class CustomMultiselectDropDown extends StatefulWidget {
 }
 
 class _CustomMultiselectDropDownState extends State<CustomMultiselectDropDown> {
-  List<String> listOFSelectedItem = [];
-  String selectedText = "";
+  List<dynamic> listOFSelectedItem = [];
+  dynamic selectedText = "";
 
   @override
   Widget build(BuildContext context) {
@@ -50,7 +52,7 @@ class _CustomMultiselectDropDownState extends State<CustomMultiselectDropDown> {
                       } else {
                         listOFSelectedItem.add(val);
                       }
-                      widget.selectedList(listOFSelectedItem);
+                      widget.onSelected(listOFSelectedItem);
                       setState(() {});
                     },
                     itemSelected: listOFSelectedItem

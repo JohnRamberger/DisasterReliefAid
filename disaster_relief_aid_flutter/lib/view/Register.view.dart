@@ -56,7 +56,9 @@ class _RegistrationFormState extends State<RegistrationForm> {
                             items: Config.languages,
                             labelText: "Language",
                             initialValue: Config.languages[0],
-                            onSaved: () {}))
+                            onSaved: (value) {
+                              user.language = value;
+                            }))
                   ]),
                 ),
                 Container(
@@ -94,7 +96,10 @@ class _RegistrationFormState extends State<RegistrationForm> {
                     Expanded(
                         child: CustomMultiselectDropDown(
                       listOFStrings: Config.vulnerabilities.toList(),
-                      selectedList: vulnerabilitySelected,
+                      onSelected: (List<dynamic> values) {
+                        user.vulnerabilities =
+                            values.map((e) => e as String).toList();
+                      },
                       labelText: "Vulnerabilities",
                       hintText: "Select your vulnerabilities",
                     ))
@@ -118,10 +123,6 @@ class _RegistrationFormState extends State<RegistrationForm> {
               ],
             ))));
   }
-}
-
-dynamic vulnerabilitySelected(List<String> selected) {
-  print(selected);
 }
 
 class BirthdayPicker extends StatefulWidget {

@@ -16,7 +16,7 @@ class DropDown extends StatefulWidget {
   final String labelText;
   final String? hintText;
   final dynamic? initialValue;
-  final dynamic Function() onSaved;
+  final dynamic Function(dynamic value) onSaved;
 
   @override
   State<DropDown> createState() => _DropDownState();
@@ -29,19 +29,19 @@ class _DropDownState extends State<DropDown> {
   Widget build(BuildContext context) {
     selected = widget.initialValue;
     return DropdownButtonFormField<String>(
-      value: selected,
-      items: widget.items.map<DropdownMenuItem<String>>((dynamic e) {
-        return DropdownMenuItem<String>(value: e, child: Text(e));
-      }).toList(),
-      onChanged: (String? value) {
-        setState(() {
-          selected = value!;
-        });
-      },
-      isExpanded: true,
-      decoration: InputDecoration(
-          labelText: widget.labelText, hintText: widget.hintText ?? ""),
-    );
+        value: selected,
+        items: widget.items.map<DropdownMenuItem<String>>((dynamic e) {
+          return DropdownMenuItem<String>(value: e, child: Text(e));
+        }).toList(),
+        onChanged: (String? value) {
+          setState(() {
+            selected = value!;
+          });
+        },
+        isExpanded: true,
+        decoration: InputDecoration(
+            labelText: widget.labelText, hintText: widget.hintText ?? ""),
+        onSaved: widget.onSaved);
   }
 }
 
