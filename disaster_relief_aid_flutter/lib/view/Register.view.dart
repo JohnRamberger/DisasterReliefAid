@@ -21,7 +21,7 @@ class _RegisterViewState extends State<RegisterView> {
         appBar: AppBar(
           title: const Text("Register"),
         ),
-        body: const RegistrationForm());
+        body: const SingleChildScrollView(child: RegistrationForm()));
   }
 }
 
