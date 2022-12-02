@@ -1,5 +1,5 @@
 import 'package:disaster_relief_aid_flutter/component/DatePicker.component.dart';
-import 'package:disaster_relief_aid_flutter/component/DropDown.component.dart';
+import 'package:disaster_relief_aid_flutter/component/FormDropDown.component.dart';
 import 'package:disaster_relief_aid_flutter/component/MultiSelectDropDown.component.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
@@ -53,7 +53,7 @@ class _RegistrationFormState extends State<RegistrationForm> {
                   margin: const EdgeInsets.only(bottom: 32),
                   child: Row(children: [
                     Expanded(
-                        child: DropDown(
+                        child: FormDropDown(
                             items: Config.languages,
                             labelText: "Language",
                             initialValue: Config.languages[0],

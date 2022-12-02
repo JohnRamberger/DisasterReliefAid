@@ -3,8 +3,8 @@ import 'package:flutter/src/widgets/framework.dart';
 
 import "package:flutter/material.dart";
 
-class DropDown extends StatefulWidget {
-  DropDown(
+class FormDropDown extends StatefulWidget {
+  FormDropDown(
       {required this.items,
       required this.labelText,
       required this.onSaved,
@@ -19,10 +19,10 @@ class DropDown extends StatefulWidget {
   final dynamic Function(dynamic value) onSaved;
 
   @override
-  State<DropDown> createState() => _DropDownState();
+  State<FormDropDown> createState() => _FormDropDownState();
 }
 
-class _DropDownState extends State<DropDown> {
+class _FormDropDownState extends State<FormDropDown> {
   dynamic selected;
 
   @override
