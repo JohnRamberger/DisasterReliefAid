@@ -1,4 +1,4 @@
-import 'package:disaster_relief_aid_flutter/Components/MultiSelectDropDown.component.dart';
+import 'package:disaster_relief_aid_flutter/component/MultiSelectDropDown.component.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -7,14 +7,14 @@ import "package:intl/intl.dart";
 
 import '../DRA.config.dart';
 
-class RegisterScreen extends StatefulWidget {
-  const RegisterScreen({super.key});
+class RegisterView extends StatefulWidget {
+  const RegisterView({super.key});
 
   @override
-  State<RegisterScreen> createState() => _RegisterScreenState();
+  State<RegisterView> createState() => _RegisterViewState();
 }
 
-class _RegisterScreenState extends State<RegisterScreen> {
+class _RegisterViewState extends State<RegisterView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
