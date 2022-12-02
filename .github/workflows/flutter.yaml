@@ -9,6 +9,9 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: disaster_relief_aid_flutter
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-java@v2
@@ -18,8 +21,6 @@ jobs:
       - uses: subosito/flutter-action@v2
         with:
           flutter-version: "3.0.5"
-        # run all of the following commands in disaster_relief_aid_flutter directory
-        working-directory: disaster_relief_aid_flutter
       - run: flutter pub get
       - run: flutter test
       - run: flutter build apk
