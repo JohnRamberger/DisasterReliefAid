@@ -1,3 +1,4 @@
+import 'package:disaster_relief_aid_flutter/component/DatePicker.component.dart';
 import 'package:disaster_relief_aid_flutter/component/DropDown.component.dart';
 import 'package:disaster_relief_aid_flutter/component/MultiSelectDropDown.component.dart';
 import 'package:flutter/material.dart';
@@ -87,8 +88,16 @@ class _RegistrationFormState extends State<RegistrationForm> {
                 ),
                 Container(
                   margin: const EdgeInsets.only(bottom: 32),
-                  child:
-                      Row(children: const [Expanded(child: BirthdayPicker())]),
+                  child: Row(children: [
+                    Expanded(
+                        child: DatePicker(
+                      label: "Birthdate",
+                      onChanged: (value) {
+                        user.birthdate = value;
+                      },
+                      required: true,
+                    ))
+                  ]),
                 ),
                 Container(
                   margin: const EdgeInsets.only(bottom: 32),
@@ -124,124 +133,3 @@ class _RegistrationFormState extends State<RegistrationForm> {
             ))));
   }
 }
-
-class BirthdayPicker extends StatefulWidget {
-  const BirthdayPicker({super.key});
-
-  @override
-  State<BirthdayPicker> createState() => _BirthdayPickerState();
-}
-
-class _BirthdayPickerState extends State<BirthdayPicker> {
-  TextEditingController dateController = TextEditingController();
-
-  @override
-  void initState() {
-    super.initState();
-    dateController.text = "";
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return TextFormField(
-      controller: dateController,
-      decoration: const InputDecoration(
-        icon: Icon(Icons.calendar_today),
-        labelText: "Birthdate",
-      ),
-      readOnly: true,
-      validator: (value) {
-        if (value == null || value.isEmpty) {
-          return "Please enter a birthdate";
-        }
-      },
-      autofillHints: const [AutofillHints.birthday],
-      onTap: () async {
-        DateTime? pickedDate = await showDatePicker(
-          context: context,
-          initialDate: DateTime.now(),
-          firstDate: DateTime(1900),
-          lastDate: DateTime.now(),
-        );
-        if (pickedDate != null) {
-          String formatted = DateFormat("MM/dd/yyyy").format(pickedDate);
-          setState(() {
-            dateController.text = formatted;
-          });
-        } else {
-          print("Date is not selected");
-        }
-      },
-    );
-  }
-}
-
-// class VulnerabilitiesDropdown extends StatefulWidget {
-//   const VulnerabilitiesDropdown({super.key});
-
-//   @override
-//   State<VulnerabilitiesDropdown> createState() =>
-//       _VulnerabilitiesDropdownState();
-// }
-
-// class _VulnerabilitiesDropdownState extends State<VulnerabilitiesDropdown> {
-//   String dropdownValue = Config.vulnerabilities[0];
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return DropdownButtonFormField<String>(
-//       // value: dropdownValue,
-//       items: Config.vulnerabilities.map<DropdownMenuItem<String>>((String e) {
-//         return DropdownMenuItem<String>(value: e, child: Text(e));
-//       }).toList(),
-//       onChanged: (String? value) {
-//         setState(() {
-//           dropdownValue = value!;
-//         });
-//       },
-//       isExpanded: true,
-//       decoration: const InputDecoration(
-//         labelText: "Vulnerabilities",
-//         // hintText: "Select your vulnerabilities"
-//       ),
-//       validator: (value) {
-//         if (value == null || value.isEmpty) {
-//           return "Please enter a vulnerability or select 'None'";
-//         }
-//       },
-//       hint: const Text("Select your vulnerabilities"),
-//     );
-//   }
-// }
-
-// -------- DropDown (can only select one) --------
-
-// class _VulnerabilitiesDropdownState extends State<VulnerabilitiesDropdown> {
-//   String dropdownValue = Config.vulnerabilities[0];
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return DropdownButtonFormField<String>(
-//       // value: dropdownValue,
-//       items: Config.vulnerabilities.map<DropdownMenuItem<String>>((String e) {
-//         return DropdownMenuItem<String>(value: e, child: Text(e));
-//       }).toList(),
-//       onChanged: (String? value) {
-//         setState(() {
-//           dropdownValue = value!;
-//         });
-//       },
-//       isExpanded: true,
-//       decoration: const InputDecoration(
-//         labelText: "Vulnerabilities",
-//         // hintText: "Select your vulnerabilities"
-//       ),
-//       validator: (value) {
-//         if (value == null || value.isEmpty) {
-//           return "Please enter a vulnerability or select 'None'";
-//         }
-//       },
-//       hint: const Text("Select your vulnerabilities"),
-//     );
-//   }
-// }
