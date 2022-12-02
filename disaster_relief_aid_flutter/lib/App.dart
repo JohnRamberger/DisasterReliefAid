@@ -7,14 +7,9 @@ import 'DRA.config.dart';
 import 'view/Register.view.dart';
 import 'view/Home.view.dart';
 
-class MyApp extends StatefulWidget {
+class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  @override
-  State<MyApp> createState() => _MyAppState();
-}
-
-class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     // check if user is logged in
