@@ -60,7 +60,7 @@ class _DatePickerState extends State<DatePicker> {
           });
           widget.onChanged(pickedDate);
         } else {
-          print("Date is not selected");
+          // print("Date is not selected");
         }
       },
     );
