@@ -18,6 +18,8 @@ jobs:
       - uses: subosito/flutter-action@v2
         with:
           flutter-version: "3.0.5"
+        # run all of the following commands in disaster_relief_aid_flutter directory
+        working-directory: disaster_relief_aid_flutter
       - run: flutter pub get
       - run: flutter test
       - run: flutter build apk
