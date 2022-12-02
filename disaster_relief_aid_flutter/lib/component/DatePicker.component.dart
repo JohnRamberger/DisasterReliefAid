@@ -5,15 +5,17 @@ import "package:flutter/material.dart";
 import 'package:intl/intl.dart';
 
 class DatePicker extends StatefulWidget {
-  const DatePicker(
+  DatePicker(
       {required this.label,
       required this.onChanged,
+      this.required = false,
       // this.initialValue,
       super.key});
 
   final String label;
   // final DateTime? initialValue;
   final dynamic Function(DateTime value) onChanged;
+  bool required;
 
   @override
   State<DatePicker> createState() => _DatePickerState();
@@ -39,11 +41,10 @@ class _DatePickerState extends State<DatePicker> {
       ),
       readOnly: true,
       validator: (value) {
-        if (value == null || value.isEmpty) {
+        if (widget.required && (value == null || value.isEmpty)) {
           return "Please enter a date";
         }
       },
-      autofillHints: const [AutofillHints.birthday],
       onTap: () async {
         DateTime? pickedDate = await showDatePicker(
           context: context,
