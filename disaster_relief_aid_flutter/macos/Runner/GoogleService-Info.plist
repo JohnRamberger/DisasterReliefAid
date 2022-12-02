@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>308081012121-864l98cin79jk125d3a011dpqfucru85.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.308081012121-864l98cin79jk125d3a011dpqfucru85</string>
+	<key>API_KEY</key>
+	<string>AIzaSyC6_y73BIJMOru64omXEBAhUSRWckcFuJc</string>
+	<key>GCM_SENDER_ID</key>
+	<string>308081012121</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.example.disasterReliefAidFlutter</string>
+	<key>PROJECT_ID</key>
+	<string>lunar-linker-366702</string>
+	<key>STORAGE_BUCKET</key>
+	<string>lunar-linker-366702.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:308081012121:ios:ef20fa5c7f96eb71f7f708</string>
+</dict>
+</plist>

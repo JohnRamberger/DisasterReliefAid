@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "308081012121",
+    "project_id": "lunar-linker-366702",
+    "storage_bucket": "lunar-linker-366702.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:308081012121:android:a7fe8b36a26b4f84f7f708",
+        "android_client_info": {
+          "package_name": "com.example.disaster_relief_aid_flutter"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "308081012121-tcqklcabvjilcqg0n9kfl0pi92hrjov0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBXTGTcBaKrmWuPoZ0Q-7SxBpBUIaVNMZs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "308081012121-tcqklcabvjilcqg0n9kfl0pi92hrjov0.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "308081012121-864l98cin79jk125d3a011dpqfucru85.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.disasterReliefAidFlutter"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
