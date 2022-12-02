@@ -1,3 +1,4 @@
+import 'package:disaster_relief_aid_flutter/component/DropDown.component.dart';
 import 'package:disaster_relief_aid_flutter/component/MultiSelectDropDown.component.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
@@ -6,6 +7,7 @@ import 'package:flutter/src/widgets/framework.dart';
 import "package:intl/intl.dart";
 
 import '../DRA.config.dart';
+import '../model/user.model.dart';
 
 class RegisterView extends StatefulWidget {
   const RegisterView({super.key});
@@ -37,6 +39,8 @@ class _RegistrationFormState extends State<RegistrationForm> {
 
   @override
   Widget build(BuildContext context) {
+    User user = User();
+
     return Form(
         key: _formKey,
         child: Padding(
@@ -46,8 +50,14 @@ class _RegistrationFormState extends State<RegistrationForm> {
               children: [
                 Container(
                   margin: const EdgeInsets.only(bottom: 32),
-                  child: Row(
-                      children: const [Expanded(child: LanguageDropDown())]),
+                  child: Row(children: [
+                    Expanded(
+                        child: DropDown(
+                            items: Config.languages,
+                            labelText: "Language",
+                            initialValue: Config.languages[0],
+                            onSaved: () {}))
+                  ]),
                 ),
                 Container(
                   margin: const EdgeInsets.only(bottom: 32),
@@ -64,6 +74,11 @@ class _RegistrationFormState extends State<RegistrationForm> {
                           return 'Please enter some text';
                         }
                         return null;
+                      },
+                      onSaved: (String? value) {
+                        if (value != null && value.isNotEmpty) {
+                          user.fname = value;
+                        }
                       },
                     ))
                   ]),
@@ -92,6 +107,9 @@ class _RegistrationFormState extends State<RegistrationForm> {
                         onPressed: () {
                           if (_formKey.currentState!.validate()) {
                             // process data woo!
+                            //print form data
+                            _formKey.currentState!.save();
+                            print(user);
                           }
                         },
                         child: const Text("Submit"))
@@ -104,35 +122,6 @@ class _RegistrationFormState extends State<RegistrationForm> {
 
 dynamic vulnerabilitySelected(List<String> selected) {
   print(selected);
-}
-
-class LanguageDropDown extends StatefulWidget {
-  const LanguageDropDown({super.key});
-
-  @override
-  State<LanguageDropDown> createState() => _LanguageDropDownState();
-}
-
-class _LanguageDropDownState extends State<LanguageDropDown> {
-  String dropdownValue = Config.languages[0];
-
-  @override
-  Widget build(BuildContext context) {
-    return DropdownButtonFormField<String>(
-      value: dropdownValue,
-      items: Config.languages.map<DropdownMenuItem<String>>((String e) {
-        return DropdownMenuItem<String>(value: e, child: Text(e));
-      }).toList(),
-      onChanged: (String? value) {
-        setState(() {
-          dropdownValue = value!;
-        });
-      },
-      isExpanded: true,
-      decoration: const InputDecoration(
-          labelText: "Language", hintText: "Select your language"),
-    );
-  }
 }
 
 class BirthdayPicker extends StatefulWidget {
@@ -186,43 +175,43 @@ class _BirthdayPickerState extends State<BirthdayPicker> {
   }
 }
 
-class VulnerabilitiesDropdown extends StatefulWidget {
-  const VulnerabilitiesDropdown({super.key});
+// class VulnerabilitiesDropdown extends StatefulWidget {
+//   const VulnerabilitiesDropdown({super.key});
 
-  @override
-  State<VulnerabilitiesDropdown> createState() =>
-      _VulnerabilitiesDropdownState();
-}
+//   @override
+//   State<VulnerabilitiesDropdown> createState() =>
+//       _VulnerabilitiesDropdownState();
+// }
 
-class _VulnerabilitiesDropdownState extends State<VulnerabilitiesDropdown> {
-  String dropdownValue = Config.vulnerabilities[0];
+// class _VulnerabilitiesDropdownState extends State<VulnerabilitiesDropdown> {
+//   String dropdownValue = Config.vulnerabilities[0];
 
-  @override
-  Widget build(BuildContext context) {
-    return DropdownButtonFormField<String>(
-      // value: dropdownValue,
-      items: Config.vulnerabilities.map<DropdownMenuItem<String>>((String e) {
-        return DropdownMenuItem<String>(value: e, child: Text(e));
-      }).toList(),
-      onChanged: (String? value) {
-        setState(() {
-          dropdownValue = value!;
-        });
-      },
-      isExpanded: true,
-      decoration: const InputDecoration(
-        labelText: "Vulnerabilities",
-        // hintText: "Select your vulnerabilities"
-      ),
-      validator: (value) {
-        if (value == null || value.isEmpty) {
-          return "Please enter a vulnerability or select 'None'";
-        }
-      },
-      hint: const Text("Select your vulnerabilities"),
-    );
-  }
-}
+//   @override
+//   Widget build(BuildContext context) {
+//     return DropdownButtonFormField<String>(
+//       // value: dropdownValue,
+//       items: Config.vulnerabilities.map<DropdownMenuItem<String>>((String e) {
+//         return DropdownMenuItem<String>(value: e, child: Text(e));
+//       }).toList(),
+//       onChanged: (String? value) {
+//         setState(() {
+//           dropdownValue = value!;
+//         });
+//       },
+//       isExpanded: true,
+//       decoration: const InputDecoration(
+//         labelText: "Vulnerabilities",
+//         // hintText: "Select your vulnerabilities"
+//       ),
+//       validator: (value) {
+//         if (value == null || value.isEmpty) {
+//           return "Please enter a vulnerability or select 'None'";
+//         }
+//       },
+//       hint: const Text("Select your vulnerabilities"),
+//     );
+//   }
+// }
 
 // -------- DropDown (can only select one) --------
 

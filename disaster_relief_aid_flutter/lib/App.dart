@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // check if user is logged in
-    const bool isLoggedIn = false;
+    const bool isLoggedIn = true;
 
     // if user is not logged in, show register screen, else show home screen
     return MaterialApp(
