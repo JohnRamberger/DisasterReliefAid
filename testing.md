@@ -1,6 +1,6 @@
 # Testing
 
-All tests for the flutter app are done in the /tests/ folder. Every test file needs to end in `_test.dart`, for example: `component_test.dart`.
+All tests for the flutter app are done in the /test/ folder. Every test file needs to end in `_test.dart`, for example: `component_test.dart`.
 
 ## What to test
 
