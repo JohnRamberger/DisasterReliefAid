@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 class HelpCallInProgressView extends StatelessWidget {
   const HelpCallInProgressView({super.key});
 
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -13,7 +12,8 @@ class HelpCallInProgressView extends StatelessWidget {
         ),
         body: const SingleChildScrollView(
             child: Center(
-          child: Text("Help is on the way!", style:TextStyle(color:Colors.red)),
+          child: Text("Help is on the way!",
+              style: TextStyle(fontSize: 32, color: Colors.red)),
         )));
   }
 }
