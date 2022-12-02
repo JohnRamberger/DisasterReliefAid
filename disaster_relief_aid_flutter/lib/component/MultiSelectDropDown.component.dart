@@ -31,15 +31,8 @@ class _CustomMultiselectDropDownState extends State<CustomMultiselectDropDown> {
       // decoration:
       //     BoxDecoration(border: Border.all(color: PrimeDentalColors.grey1)),
       child: ExpansionTile(
-        title: Text(widget.labelText ?? "Select"
-            // style: GoogleFonts.poppins(
-            //   textStyle: TextStyle(
-            //     color: PrimeDentalColors.grey,
-            //     fontWeight: FontWeight.w400,
-            //     fontSize: 15.0,
-            //   ),
-            // ),
-            ),
+        title: Text(
+            '${widget.labelText ?? "Select"}${listOFSelectedItem.isNotEmpty ? " (${listOFSelectedItem.length})" : ""}'),
         children: <Widget>[
           ListView.builder(
             physics: const NeverScrollableScrollPhysics(),
