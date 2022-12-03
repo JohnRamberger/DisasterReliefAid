@@ -35,17 +35,26 @@ class _HomeViewState extends State<HomeView> {
                   'Request help right away if your are in a dangerous situation.'),
             ),
             Row(mainAxisAlignment: MainAxisAlignment.end, children: <Widget>[
-              TextButton(onPressed: () {}, child: const Text('Request Help')),
+              TextButton(
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const RequestHelpView()));
+                  },
+                  child: const Text('Request Help')),
             ])
           ])),
           Card(
-              child: Column(mainAxisSize: MainAxisSize.min, children: <Widget>[
-            const ListTile(
-              title: Text('Disaster Relief tips'),
-              subtitle:
-                  Text('During a eduroam outage, it is recommended to...'),
-            ),
-          ]))
+              child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: const <Widget>[
+                ListTile(
+                  title: Text('Disaster Relief tips'),
+                  subtitle:
+                      Text('During a eduroam outage, it is recommended to...'),
+                ),
+              ]))
         ],
       ),
       bottomNavigationBar:
