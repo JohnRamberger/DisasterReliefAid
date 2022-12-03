@@ -11,8 +11,8 @@ class RequestHelpView extends StatelessWidget {
         ),
         body: Column(
           children: [
-            const Text("test"),
-            const Text("testt"),
+            // const Text("test"),
+            // const Text("testt"),
             ElevatedButton(
                 onPressed: () => Navigator.push(context,
                     MaterialPageRoute(builder: (c) => HelpCallInProgressView())),

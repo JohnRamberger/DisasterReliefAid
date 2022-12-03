@@ -9,6 +9,7 @@ import "package:intl/intl.dart";
 
 import '../DRA.config.dart';
 import '../model/user.model.dart';
+import 'Home.view.dart';
 
 class RegisterView extends StatefulWidget {
   const RegisterView({super.key});
@@ -124,6 +125,11 @@ class _RegistrationFormState extends State<RegistrationForm> {
                             //print form data
                             _formKey.currentState!.save();
                             print(user);
+                            // navigate to home page
+                            Navigator.pushReplacement(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => HomeView()));
                           }
                         },
                         child: const Text("Submit"))
